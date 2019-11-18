@@ -3,7 +3,7 @@ import numpy as np
 
 def dilation_by_volume(pitches, volume, threshold=0.65):
     new_pitches = np.copy(pitches)
-    for i in range(new_pitches.shape[0]):
+    for i in range(new_pitches.shape[0] - 1):
         if volume[i] > threshold:
             new_pitches[i] = new_pitches[max(0, i + 1)]
 
