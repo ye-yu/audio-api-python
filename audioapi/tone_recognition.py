@@ -69,6 +69,18 @@ def set_xlabels_sample2time(ax, latest_sample, srate):
             rotation=50)
 
 
+def plot_from_pitches(timeframe, *pitches):
+    times = [i * timeframe for i in range(pitches[0].shape[0])]
+    fig = plt.figure(figsize=(16, 5))
+    ax = plt.gca()
+    for i in pitches:
+        plt.plot(times, i)
+    ax.set_xlabel('time (ms)')
+    ax.set_ylabel('pitches')
+    plt.show()
+    return ax
+
+
 class Tone:
     def __init__(self, filename, tolerance=0.8, srate=None):
         if srate:
